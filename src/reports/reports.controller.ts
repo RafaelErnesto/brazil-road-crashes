@@ -17,7 +17,7 @@ export class ReportsController {
 
   @Get('city:city')
   getReportByCity(): string {
-    return this.reportsService.getCountryReport();
+    return this.reportsService.getCityReport();
   }
 
   @Get('reason:reason')

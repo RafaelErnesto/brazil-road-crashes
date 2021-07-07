@@ -8,4 +8,7 @@ export class ReportsService {
   getStateReport(): string {
     return 'state';
   }
+  getCityReport(): string {
+    return 'state';
+  }
 }
