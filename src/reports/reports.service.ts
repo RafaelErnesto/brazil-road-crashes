@@ -11,4 +11,7 @@ export class ReportsService {
   getCityReport(): string {
     return 'state';
   }
+  getReasonReport(): string {
+    return 'state';
+  }
 }

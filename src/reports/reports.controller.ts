@@ -22,7 +22,7 @@ export class ReportsController {
 
   @Get('reason:reason')
   getReportByReason(): string {
-    return this.reportsService.getCountryReport();
+    return this.reportsService.getReasonReport();
   }
 
   @Get('result:result')
