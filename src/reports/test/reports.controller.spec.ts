@@ -32,4 +32,11 @@ describe('ReportsController testing', () => {
       .mockImplementation(() => result);
     expect(await reportsController.getReportByCity()).toBe(result);
   });
+  it('Ensure getReportByReason returns correctly', async () => {
+    const result = 'any_data';
+    jest
+      .spyOn(reportsService, 'getReasonReport')
+      .mockImplementation(() => result);
+    expect(await reportsController.getReportByReason()).toBe(result);
+  });
 });
