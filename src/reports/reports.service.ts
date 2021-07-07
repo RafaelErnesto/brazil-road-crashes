@@ -14,4 +14,7 @@ export class ReportsService {
   getReasonReport(): string {
     return 'state';
   }
+  getResultReport(): string {
+    return 'state';
+  }
 }

@@ -27,6 +27,6 @@ export class ReportsController {
 
   @Get('result:result')
   getReportByResult(): string {
-    return this.reportsService.getCountryReport();
+    return this.reportsService.getResultReport();
   }
 }
