@@ -12,7 +12,7 @@ export class ReportsController {
 
   @Get('state:state')
   getReportByState(): string {
-    return this.reportsService.getCountryReport();
+    return this.reportsService.getStateReport();
   }
 
   @Get('city:city')
