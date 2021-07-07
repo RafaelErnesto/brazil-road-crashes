@@ -10,22 +10,22 @@ export class ReportsController {
     return this.reportsService.getCountryReport();
   }
 
-  @Get('state')
+  @Get('state:state')
   getReportByState(): string {
     return this.reportsService.getCountryReport();
   }
 
-  @Get('city')
+  @Get('city:city')
   getReportByCity(): string {
     return this.reportsService.getCountryReport();
   }
 
-  @Get('reason')
+  @Get('reason:reason')
   getReportByReason(): string {
     return this.reportsService.getCountryReport();
   }
 
-  @Get('result')
+  @Get('result:result')
   getReportByResult(): string {
     return this.reportsService.getCountryReport();
   }
