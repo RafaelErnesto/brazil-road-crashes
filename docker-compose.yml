@@ -1,0 +1,56 @@
+version: "3.7"
+services: 
+    mongo-dev:
+        image: mongo:latest
+        environment: 
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: rootpassword
+        ports:
+            - 27017:27017
+        volumes:
+            - volume_container_mongodb:/data/db
+    dev:
+        container_name: api-dev
+        image: road-crash-api:dev
+        build:
+            context: .
+            target: development
+            dockerfile: ./Dockerfile
+        command: npm run start:debug
+        ports:
+            - 8080:8080
+        links: 
+            - mongo-dev
+        depends_on: 
+            - mongo-dev
+        networks: 
+            - api-network
+        volumes:
+            - .:/usr/src/app
+            - /usr/app/node_modules
+        restart: unless-stopped
+        environment: 
+            MONGO_URL: mongo-dev
+    prod:
+        container_name: api-prod
+        image: road-crash-api:prod
+        build:
+            context: .
+            target: production
+            dockerfile: ./Dockerfile
+        command: npm run start:prod
+        ports:
+            - 8080:8080
+        networks: 
+            - api-network
+        volumes:
+            - .:/usr/src/app
+            - /usr/app/node_modules
+        restart: unless-stopped
+
+networks: 
+    api-network:
+        
+    
+volumes:
+    volume_container_mongodb:
