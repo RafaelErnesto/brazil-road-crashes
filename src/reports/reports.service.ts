@@ -5,22 +5,11 @@ import { Crash, CrashDocument } from './schemas/crash.schema';
 
 @Injectable()
 export class ReportsService {
+  constructor(
+    @InjectModel(Crash.name) private crashModel: Model<CrashDocument>,
+  ) {}
 
-  constructor( @InjectModel(Crash.name) private crashModel: Model<CrashDocument> ){};
-
-  getCountryReport(): string {
-    return 'country';
-  }
-  getStateReport(): string {
-    return 'state';
-  }
-  getCityReport(): string {
-    return 'state';
-  }
-  getReasonReport(): string {
-    return 'state';
-  }
-  getResultReport(): string {
-    return 'state';
+  async getCountryReport(): Promise<any> {
+    return await this.crashModel.find({});
   }
 }
