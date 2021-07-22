@@ -6,7 +6,7 @@ const url = process.env.MONGO_URL || 'localhost';
 @Module({
   imports: [
     ReportsModule,
-    MongooseModule.forRoot(`mongodb://${url}:27017/api`),
+    MongooseModule.forRoot(`mongodb://${url}:27017/crash-api`),
   ],
 })
 export class AppModule {}
