@@ -9,6 +9,8 @@ services:
             - 27017:27017
         volumes:
             - volume_container_mongodb:/data/db
+        networks: 
+            - api-network
     dev:
         container_name: api-dev
         image: road-crash-api:dev
@@ -19,8 +21,6 @@ services:
         command: npm run start:debug
         ports:
             - 8080:8080
-        links: 
-            - mongo-dev
         depends_on: 
             - mongo-dev
         networks: 
@@ -30,6 +30,8 @@ services:
             - /usr/app/node_modules
         restart: unless-stopped
         environment: 
+            MONGO_USER: root
+            MONGO_PASSWORD: rootpassword
             MONGO_URL: mongo-dev
     prod:
         container_name: api-prod
